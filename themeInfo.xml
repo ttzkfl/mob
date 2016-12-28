@@ -1,0 +1,53 @@
+﻿<?php
+    echo '<rss version="2.0">
+  <channel>
+    <title>meinv</title>
+    <link>https://ttzkfl.github.io/mob/mr.json</link>
+    <description><![CDATA[gaga]]></description>
+    <lastBuildDate>'.date("U").'</lastBuildDate>
+    <generator>Feed43 Proxy/1.0 (www.feed43.com)</generator>
+    <ttl>360</ttl>';
+    $url = 'http://www.xiaolianzu.com/index.php?type=7&page=1';
+    $dy_json = file_get_contents($url);
+    $preg = '/\[(.*?)\,\]/i';
+    preg_match_all($preg, $dy_json, $dy_arr);
+    $new = explode(',',$dy_arr[1][0]);
+    foreach($new as $nk=>$nv){
+        $nv = urldecode($nv);
+        $newnv = substr($nv,1,-1);
+        $newnv = strrev($newnv);
+        echo '<item>
+<guid isPermaLink="false">f9d6b497b98ce5373d759e2286798d0a</guid>
+<pubDate>'.date("U").'</pubDate>
+<title>006doGcsjw1f7vmksv5phj30g80sw75z</title>
+<link>'.$newnv.'</link>
+<description><![CDATA[<img src="a"/>
+<img src="'.$newnv.'"/><p><sub><i>-- Delivered by <a href="http://feed43.com/">Feed43</a> service</i></sub></p>
+]]></description>
+</item>';
+      
+    }
+    $url = 'http://www.xiaolianzu.com/index.php?type=6&page=1';
+    $dy_json = file_get_contents($url);
+    $preg = '/\[(.*?)\,\]/i';
+    preg_match_all($preg, $dy_json, $dy_arr);
+    $new = explode(',',$dy_arr[1][0]);
+    foreach($new as $nk=>$nv){
+        $nv = urldecode($nv);
+        $newnv = substr($nv,1,-1);
+        $newnv = strrev($newnv);
+        echo '<item>
+<guid isPermaLink="false">f9d6b497b98ce5373d759e2286798d0a</guid>
+<pubDate>'.date("U").'</pubDate>
+<title>006doGcsjw1f7vmksv5phj30g80sw75z</title>
+<link>'.$newnv.'</link>
+<description><![CDATA[<img src="a"/>
+<img src="'.$newnv.'"/><p><sub><i>-- Delivered by <a href="http://feed43.com/">Feed43</a> service</i></sub></p>
+]]></description>
+</item>';
+      
+    }
+
+echo ' </channel>
+</rss>';
+?>
